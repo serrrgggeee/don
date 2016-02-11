@@ -38,6 +38,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS =[
     'django_admin_bootstrapped',
     'django.contrib.admin',
+    #'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -45,9 +46,12 @@ INSTALLED_APPS =[
     'django.contrib.staticfiles',
     'my_test',
     'bootstrap3',
+    'easy_pdf',
+    'ups',
 ]
 
 MIDDLEWARE_CLASSES = [
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -63,14 +67,16 @@ DAB_FIELD_RENDERER = 'django_admin_bootstrapped.renderers.BootstrapFieldRenderer
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'ups', 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.contrib.auth.context_processors.auth',
             ],
         },
     },
